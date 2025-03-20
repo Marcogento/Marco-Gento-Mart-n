@@ -3,25 +3,12 @@ import pandas as pd
 import plotly.express as px
 import os
 
-# Load Data
 def load_data():
-    # Define the correct file path
-    file_path = "C:/Users/marco/Downloads/streamlit_2/airbnb_dataset.csv"
-
-    # Debugging: Print the file path
+    file_path = r"C:/Users/marco/OneDrive\Desktop\streamlit/airbnb_dataset.csv"
     st.write(f"Attempting to load file from: {file_path}")
-
-    # Check if the file exists before reading
-    if os.path.exists(file_path):
-        df = pd.read_csv(file_path)
-        st.write("✅ File loaded successfully!")  # Debugging success message
-    else:
-        st.error(f"❌ Error: File not found at {file_path}")
-        st.stop()  # Stop execution if file is missing
-
+    df = pd.read_csv(file_path)
+    st.write("✅ File loaded successfully!")  
     return df
-
-# Call the function to load the data
 df = load_data()
 
 # Clean Data (if needed)
