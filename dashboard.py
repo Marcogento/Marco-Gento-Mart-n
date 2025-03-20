@@ -1,13 +1,27 @@
 import streamlit as st
 import pandas as pd
 import plotly.express as px
+import os
 
 # Load Data
-@st.cache_data  # Cache the data to avoid reloading
 def load_data():
-    df = pd.read_csv("airbnb.csv")  # Replace with your file path
+    # Define the correct file path
+    file_path = "C:/Users/marco/Downloads/streamlit_2/airbnb_dataset.csv"
+
+    # Debugging: Print the file path
+    st.write(f"Attempting to load file from: {file_path}")
+
+    # Check if the file exists before reading
+    if os.path.exists(file_path):
+        df = pd.read_csv(file_path)
+        st.write("✅ File loaded successfully!")  # Debugging success message
+    else:
+        st.error(f"❌ Error: File not found at {file_path}")
+        st.stop()  # Stop execution if file is missing
+
     return df
 
+# Call the function to load the data
 df = load_data()
 
 # Clean Data (if needed)
