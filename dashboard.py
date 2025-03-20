@@ -4,7 +4,7 @@ import plotly.express as px
 import os
 
 def load_data():
-    file_path = r"C:/Users/marco/OneDrive\Desktop\streamlit/airbnb_dataset.csv"
+    file_path = r"C:/Users/marco/Downloads/streamlit_2/airbnb_dataset.csv"
     st.write(f"Attempting to load file from: {file_path}")
     df = pd.read_csv(file_path)
     st.write("✅ File loaded successfully!")  
